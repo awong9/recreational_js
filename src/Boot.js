@@ -51,7 +51,7 @@ MissileCommand.Boot.prototype = {
             this.scale.setResizeCallback(this.gameResized, this);
             this.scale.enterIncorrectOrientation.add(this.enterIncorrectOrientation, this);
             this.scale.leaveIncorrectOrientation.add(this.leaveIncorrectOrientation, this);
-            this.scale.setScreenSize(true);
+            this.scale.updateLayout(true);
         }
 
         this.state.start('Preloader');
