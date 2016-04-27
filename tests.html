@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+	<meta charset="UTF-8">
+    <title>Exercises</title>
+  </head>
+  <body>
+<script>
+  "use strict"
+  var arr = myRange(1,10)
+
+  var list = arrayToList(arr)
+
+	function noisy(f) {
+	  return function(arg) {
+			console.log("calling with", arg)
+			var val = f(arg);
+			console.log('called with', arg, '- got', val)
+			return val
+		}
+	}
+	deepEqual = noisy(deepEqual)
+	
+	for( var i=0;i<5;i++ ){
+	  console.log( nth(list, i) )
+	  console.log( nth_r(list, i) )
+	}
+	var a = 6
+	var b = null
+	var c = {good: 'yes'}
+	var d = {good: 'yes'}
+	var e = {good: 'no'}
+  console.log(deepEqual(a,a))
+	console.log(deepEqual(a,b))
+	console.log(deepEqual(b,c))
+	console.log(deepEqual(d,d))
+	console.log(deepEqual(c,e))
+  console.log(deepEqual(c,d))
+	
+	function deepEqual(a, b) {
+	  if(typeof a == 'object' &&
+		   typeof b == 'object' &&
+			 a != null && b != null ) {
+			for(var key in a) {
+			  if( !deepEqual(a[key], b[key]) ) return false
+			}
+			return true			
+		}
+		return a==b
+	}	
+	
+  function arrayToList(arr) {
+	  var list = {}
+		var current = list
+		for(var i=0; i<arr.length; i++ ) {
+		  current.value = arr[i]
+			current.next = {}
+			current = current.next
+		}
+		current.next = null
+	  return list;
+  }
+	function listToArray(list) {
+	  var arr = []
+		var current = list
+		while( current.value != null ) {
+		  arr.push( current.value )
+			current = current.next
+		}
+		return arr
+	}
+	function prepend(element, list) {
+		return {value: element, next:list}
+	}
+	function nth(list, n) {
+	  var current = list
+		while ( current.value != null && n>0 ) {
+		  current = current.next
+			n--
+		}
+		return current.value
+	}
+	function nth_r(list, n) {
+	  if (n==0) return list.value
+		return nth_r(list.next, n-1)
+	}
+  
+  function reverseArrayInPlace(arr) {
+    rA(arr.length/2)
+
+    function rA(n) {
+      if(n==0) return;
+      var swap = arr.pop()
+      arr.push( arr.shift() )
+      arr.unshift( swap )
+      rA(n-1)
+    }
+  }
+  
+  function reverseArray(arr) {
+    var arr_copy = arr.slice(0)
+    var newArr = []
+    rA()    
+    return newArr
+    
+    function rA() {
+      if(arr_copy.length==0) return
+      newArr.push(arr_copy.pop())
+      rA()
+    }
+  }
+  
+  //cludgy fix to add last element
+  function myRange(start, end, step = 1){
+    var range = []
+    for( var i=start; i!=end; i+=step )
+      range.push(i)
+    if(Math.abs(start-end)>1) range.push(end)
+    return range
+  }
+  function mySum(arr) {
+    var sum = 0
+    for( var i=0;i<arr.length;i++ )
+      sum+= arr[i]
+    return sum
+  }
+  
+</script> 
+  </body>
+</html>
