@@ -36,7 +36,7 @@ MissileCommand.Boot.prototype = {
             this.scale.maxHeight = 480;
             this.scale.pageAlignHorizontally = true;
             this.scale.pageAlignVertically = true;
-            this.scale.setScreenSize(true);
+            this.scale.updateLayout(true);
         }
         else
         {
