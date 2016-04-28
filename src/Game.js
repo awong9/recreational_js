@@ -72,8 +72,10 @@ MissileCommand.Game.prototype = {
 
         this.rocketLauncher.update();
         this.missileLauncher.update();
-
-        this.rocketLauncher.checkCollision(this.missileLauncher.getActiveMissiles());
+        
+        var activeMissiles = this.missileLauncher.getActiveMissiles()
+        this.rocketLauncher.checkCollision(activeMissiles);
+        if(activeMissiles.length ==0) this.missileLauncher.startWave(12, 60, 4);
 
 	},
 
