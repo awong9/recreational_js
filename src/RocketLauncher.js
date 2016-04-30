@@ -5,7 +5,7 @@ MissileCommand.RocketLauncher = function (game, bmd1, bmd2, silo1, silo2) {
 	this.rocketsBMD = bmd1;
 	this.explosionBMD = bmd2;
 
-	this.rocketSpeed = 4;
+	this.rocketSpeed = 12;
 
 	this.silo1 = silo1;
 	this.silo2 = silo2;
