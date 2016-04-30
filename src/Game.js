@@ -16,9 +16,9 @@ MissileCommand.Game = function (game) {
     this.land;
     this.cities;
 
-    // this.rocketSpeed = 10;
-    // this.missileSpeed = 10000;
-    // this.missileDelay = 10000;
+     this.rocketSpeed = 10;
+     this.missileSpeed = 10000;
+     this.missileDelay = 10000;
 
     this.silo1;
     this.silo2;
@@ -76,7 +76,7 @@ MissileCommand.Game.prototype = {
         var activeMissiles = this.missileLauncher.getActiveMissiles()
         this.rocketLauncher.checkCollision(activeMissiles);
         if(activeMissiles.length ==0) {
-        	this.missileLauncher.startWave(12, 180, 4);
+        	this.missileLauncher.startWave(12, 60, 4);
         	this.silo1.refill(2);
         	this.silo2.refill(2);
         }
