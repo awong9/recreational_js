@@ -21,12 +21,6 @@ MissileCommand.Silo.prototype = {
 		this.counter.text = this.armory;
 
 	}
-	
-	refill: function (var n) {
-		
-		this.armory += n;
-		this.counter.text = this.armory;
-	}
 
 }
 
