@@ -10,7 +10,7 @@ MissileCommand.Rocket = function (launcher) {
 
 	this.line = new Phaser.Line();
 	this.alive = false;
-	this.speed = 1;
+	this.speed = 5;
 
 	this.silo = null;
 	this.data = null;
